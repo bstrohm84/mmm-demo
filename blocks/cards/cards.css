@@ -37,7 +37,7 @@
   padding: 30px;
 }
 
-/* card header: underlined title + red chevron top-right */
+/* card header */
 .cards .cards-card-body h2,
 .cards .cards-card-body h3,
 .cards .cards-card-body h4,
@@ -48,10 +48,14 @@
   font-weight: 700;
   line-height: 1.35;
   color: #000;
+}
+
+/* .linked variant — underlined title + red chevron top-right */
+.cards.linked .cards-card-body :is(h2, h3, h4, h5) {
   text-decoration: underline;
 }
 
-.cards .cards-card-body > :first-child::after {
+.cards.linked .cards-card-body > :first-child::after {
   content: "\203A"; /* › */
   position: absolute;
   top: 28px;
