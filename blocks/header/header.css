@@ -322,3 +322,38 @@ header .breadcrumbs ol li[aria-current] {
     padding: 0 32px;
   }
 }
+
+/* ── 3M theme overrides ─────────────────────────────────────────── */
+header .nav-wrapper {
+  border-bottom: 1px solid var(--border-color);
+}
+
+header .nav-brand a:any-link {
+  color: #000;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+header .nav-brand a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+header .nav-sections a:any-link,
+header .nav-tools a:any-link {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+header .nav-sections a:hover,
+header .nav-tools a:hover,
+header .nav-sections .nav-drop:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+header .nav-sections ul {
+  font-weight: 500;
+}
