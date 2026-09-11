@@ -5,20 +5,56 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 450px;
+  /* center a 1300px content column, left-align copy within it */
+  padding: 40px max(24px, calc((100% - 1300px) / 2));
+  overflow: hidden;
+  color: var(--background-color);
+  background-color: var(--dark-color); /* fallback when no photo is set */
 }
 
-.hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+/* dark gradient scrim so left-aligned copy stays legible over the photo */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(25 25 25 / 97%) 0%,
+    rgb(25 25 25 / 70%) 38%,
+    rgb(25 25 25 / 0%) 72%
+  );
+}
+
+.hero :is(h1, h2, h3),
+.hero p {
+  max-width: 560px;
+  margin: 0 0 16px;
   color: var(--background-color);
+}
+
+.hero :is(h1, h2, h3) {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.hero p {
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+}
+
+.hero .button-container {
+  margin-top: 10px;
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: -2;
   inset: 0;
   object-fit: cover;
   box-sizing: border-box;
@@ -28,10 +64,4 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-
-@media (width >= 900px) {
-  .hero {
-    padding: 40px 32px;
-  }
 }
